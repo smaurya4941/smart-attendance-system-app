@@ -1,13 +1,15 @@
-# Render deployment requirements
-# Optimized for Render's free tier with face recognition
+# Core
+streamlit==1.28.2
+qrcode[pil]==7.4.2
+pyzbar==0.1.9
+opencv-python-headless==4.8.1.78
+Pillow==10.0.1
+numpy==1.24.4
 
-streamlit>=1.28.0
-qrcode[pil]>=7.4.0
-pyzbar>=0.1.9
-opencv-python-headless>=4.8.0.0
-Pillow>=10.0.0
-numpy>=1.24.0,<2.0.0
-face-recognition>=1.3.0
-dlib>=19.24.0
-cmake>=3.25.0
-gunicorn>=21.0.0
+# Face Recognition stack (use versions with prebuilt wheels)
+dlib==19.24.2
+face-recognition==1.3.0
+
+# Build & Deployment
+cmake==3.25.2
+gunicorn==21.2.0
