@@ -46,7 +46,13 @@ A comprehensive attendance management system using QR codes and face recognition
    web: streamlit run app.py --server.port=$PORT --server.address=0.0.0.0
    ```
 
-#### Option 3: Railway/Render
+#### Option 3: Railway (Full Features with Face Recognition) ⭐
+1. **Use `requirements-railway.txt`**
+2. **Use `app-railway.py` as main file**
+3. **Railway will automatically detect and build the project**
+4. **Includes face recognition and all features**
+
+#### Option 4: Railway/Render (Alternative)
 1. Use `requirements-minimal.txt`
 2. Set start command: `streamlit run app.py --server.port=$PORT --server.address=0.0.0.0`
 
@@ -83,7 +89,21 @@ smart-attendance-System/
 streamlit run app.py
 ```
 
-### Cloud Deployment (Streamlit Cloud)
+### Railway Deployment (Recommended for Full Features) 🚀
+
+1. **Sign up for Railway**: Go to [railway.app](https://railway.app)
+2. **Connect GitHub**: Link your GitHub account
+3. **Deploy from GitHub**:
+   - Click "Deploy from GitHub repo"
+   - Select your repository
+   - Railway will auto-detect the project
+4. **Configure Settings**:
+   - **Requirements file**: `requirements-railway.txt`
+   - **Main file**: `app-railway.py`
+   - **Port**: Railway will set `$PORT` automatically
+5. **Deploy**: Railway will build and deploy automatically
+
+### Streamlit Cloud Deployment
 1. Push your code to GitHub
 2. Connect your GitHub repository to Streamlit Cloud
 3. Deploy with the main file as `app.py`
@@ -105,6 +125,13 @@ streamlit run app.py
 - **Solution**: 
   - Use `requirements-simple.txt` with `app-deploy.py` (QR code only)
   - This avoids face recognition packages that require compilation
+
+#### Railway Deployment Issues
+- **Error**: Build timeout or memory issues
+- **Solution**: 
+  - Railway has better build capabilities than Streamlit Cloud
+  - Use `requirements-railway.txt` with `app-railway.py`
+  - Railway supports face recognition compilation
 
 #### Face Recognition Installation Issues
 - **Error**: `dlib` installation fails
