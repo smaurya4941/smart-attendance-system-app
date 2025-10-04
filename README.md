@@ -33,23 +33,43 @@ A comprehensive attendance management system using QR codes and face recognition
 
 ## Deployment
 
-### Railway Deployment (Recommended) 🚀
+### Render.com Deployment (FREE) 🆓
 
-Railway is the recommended platform for this application as it supports the complex build requirements for face recognition.
+Render is the best free platform for this application as it supports complex builds including face recognition.
 
-1. **Sign up for Railway**: Go to [railway.app](https://railway.app)
-2. **Connect GitHub**: Link your GitHub account
-3. **Deploy from GitHub**:
-   - Click "Deploy from GitHub repo"
+#### Step-by-Step Deployment:
+
+1. **Sign up for Render**
+   - Go to [render.com](https://render.com)
+   - Sign up with GitHub account
+
+2. **Create Web Service**
+   - Click "New +" → "Web Service"
+   - Connect your GitHub repository
    - Select your repository
-   - Railway will auto-detect the project
-4. **Deploy**: Railway will build and deploy automatically
 
-**Railway Configuration:**
-- **Requirements file**: `requirements.txt` (automatically detected)
-- **Main file**: `app.py` (automatically detected)
-- **Port**: Railway handles `$PORT` automatically
-- **Configuration**: `railway.json` provides optimized settings
+3. **Configure Settings**
+   - **Name**: `smart-attendance-system` (or your preferred name)
+   - **Environment**: `Python 3`
+   - **Build Command**: `pip install -r requirements.txt`
+   - **Start Command**: `streamlit run app.py --server.port=$PORT --server.address=0.0.0.0 --server.headless=true`
+   - **Python Version**: `3.11.0`
+
+4. **Advanced Settings**
+   - **Auto-Deploy**: Yes (deploys automatically on git push)
+   - **Health Check Path**: `/` (optional)
+
+5. **Deploy**
+   - Click "Create Web Service"
+   - Render will build and deploy automatically
+   - Build time: ~10-15 minutes (face recognition compilation)
+
+#### Render Configuration:
+- **Requirements file**: `requirements.txt`
+- **Main file**: `app.py`
+- **Procfile**: `Procfile` (for start command)
+- **Free tier**: 750 hours/month, 512MB RAM
+- **Build time**: Up to 45 minutes
 
 ## Usage
 
@@ -69,10 +89,9 @@ Railway is the recommended platform for this application as it supports the comp
 smart-attendance-System/
 ├── app.py                 # Main Streamlit application
 ├── db_utils.py           # Database utilities and functions
-├── requirements.txt      # Python dependencies
-├── railway.json          # Railway deployment configuration
+├── requirements.txt      # Python dependencies for Render
+├── Procfile              # Render start command
 ├── README.md             # This file
-├── .gitignore            # Git ignore rules
 ├── students.db           # SQLite database (created automatically)
 ├── qrcodes/              # Generated QR code images
 ├── encodings/            # Face encoding files
@@ -81,19 +100,23 @@ smart-attendance-System/
 
 ## Troubleshooting
 
-### Railway Deployment Issues
+### Render Deployment Issues
 
 #### Build Timeout
 - **Error**: Build takes too long or times out
-- **Solution**: Railway has generous build limits, but if issues persist, check the build logs for specific errors
+- **Solution**: Render allows up to 45 minutes for builds. Face recognition compilation can take 10-15 minutes.
 
 #### Face Recognition Installation Issues
 - **Error**: `dlib` or `face-recognition` installation fails
-- **Solution**: Railway's build environment should handle this automatically. If issues persist, check the build logs
+- **Solution**: Render's build environment handles this automatically. Check build logs for specific errors.
 
 #### Memory Issues
 - **Error**: Out of memory during build
-- **Solution**: Railway provides adequate memory for builds. Contact Railway support if persistent issues occur
+- **Solution**: Render provides 512MB RAM which is sufficient. If issues persist, check build logs.
+
+#### Service Not Starting
+- **Error**: Service fails to start
+- **Solution**: Check that `Procfile` is present and start command is correct.
 
 ### Application Issues
 
@@ -105,9 +128,9 @@ smart-attendance-System/
 ## Support
 
 For issues or questions:
-- Check the Railway build logs for deployment issues
+- Check the Render build logs for deployment issues
 - Check the application logs for runtime issues
-- Contact Railway support for platform-specific problems
+- Contact Render support for platform-specific problems
 
 ## License
 

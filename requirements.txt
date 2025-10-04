@@ -1,5 +1,5 @@
-# Railway deployment requirements with face recognition
-# Optimized for Railway's build environment
+# Render deployment requirements
+# Optimized for Render's free tier with face recognition
 
 streamlit>=1.28.0
 qrcode[pil]>=7.4.0
@@ -10,7 +10,4 @@ numpy>=1.24.0,<2.0.0
 face-recognition>=1.3.0
 dlib>=19.24.0
 cmake>=3.25.0
-
-# Additional dependencies for Railway
 gunicorn>=21.0.0
-psutil>=5.9.0
