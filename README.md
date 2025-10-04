@@ -32,11 +32,12 @@ A comprehensive attendance management system using QR codes and face recognition
 
 ### Cloud Deployment
 
-#### Option 1: Streamlit Cloud
+#### Option 1: Streamlit Cloud (Recommended)
 1. Push your code to GitHub
 2. Connect to [Streamlit Cloud](https://share.streamlit.io)
-3. Use `requirements-minimal.txt` for deployment
-4. Set main file as `app.py`
+3. **Use `requirements-simple.txt` for deployment** (QR code only)
+4. **Set main file as `app-deploy.py`** (deployment-optimized version)
+5. **OR use `requirements-minimal.txt` with `app.py`** (full features, may have build issues)
 
 #### Option 2: Heroku
 1. Use `requirements-deploy.txt`
@@ -97,7 +98,13 @@ streamlit run app.py
 
 #### Package Installation Errors
 - **Error**: `No matching distribution found for numpy==1.26.0`
-- **Solution**: Use `requirements-minimal.txt` instead of `requirements.txt`
+- **Solution**: Use `requirements-simple.txt` instead of `requirements.txt`
+
+#### Build Compilation Errors
+- **Error**: `Installing build dependencies` or numpy compilation fails
+- **Solution**: 
+  - Use `requirements-simple.txt` with `app-deploy.py` (QR code only)
+  - This avoids face recognition packages that require compilation
 
 #### Face Recognition Installation Issues
 - **Error**: `dlib` installation fails

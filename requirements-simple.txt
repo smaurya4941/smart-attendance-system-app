@@ -1,0 +1,9 @@
+# Ultra-minimal requirements for deployment
+# Only pre-compiled packages to avoid build issues
+
+streamlit
+qrcode[pil]
+pyzbar
+opencv-python-headless
+Pillow
+numpy
