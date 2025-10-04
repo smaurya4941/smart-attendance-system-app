@@ -1,0 +1,10 @@
+# Minimal requirements for deployment
+streamlit
+qrcode[pil]
+pyzbar
+opencv-python-headless
+Pillow
+numpy
+face-recognition
+dlib
+cmake

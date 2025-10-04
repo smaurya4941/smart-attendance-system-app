@@ -12,6 +12,8 @@ A comprehensive attendance management system using QR codes and face recognition
 
 ## Installation
 
+### Local Installation
+
 1. **Clone the repository**
    ```bash
    git clone <your-repo-url>
@@ -27,6 +29,25 @@ A comprehensive attendance management system using QR codes and face recognition
    ```bash
    streamlit run app.py
    ```
+
+### Cloud Deployment
+
+#### Option 1: Streamlit Cloud
+1. Push your code to GitHub
+2. Connect to [Streamlit Cloud](https://share.streamlit.io)
+3. Use `requirements-minimal.txt` for deployment
+4. Set main file as `app.py`
+
+#### Option 2: Heroku
+1. Use `requirements-deploy.txt`
+2. Add `Procfile`:
+   ```
+   web: streamlit run app.py --server.port=$PORT --server.address=0.0.0.0
+   ```
+
+#### Option 3: Railway/Render
+1. Use `requirements-minimal.txt`
+2. Set start command: `streamlit run app.py --server.port=$PORT --server.address=0.0.0.0`
 
 ## Usage
 
@@ -68,9 +89,33 @@ streamlit run app.py
 
 ## Troubleshooting
 
+### Deployment Issues
+
+#### Python Version Compatibility
+- **Error**: `Requires-Python <3.13,>=3.9`
+- **Solution**: Use Python 3.9-3.12 for deployment
+
+#### Package Installation Errors
+- **Error**: `No matching distribution found for numpy==1.26.0`
+- **Solution**: Use `requirements-minimal.txt` instead of `requirements.txt`
+
+#### Face Recognition Installation Issues
+- **Error**: `dlib` installation fails
+- **Solution**: 
+  ```bash
+  # For Ubuntu/Debian
+  sudo apt-get install build-essential cmake
+  sudo apt-get install libopenblas-dev liblapack-dev
+  sudo apt-get install libx11-dev libgtk-3-dev
+  sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev
+  ```
+
+### Application Issues
+
 - **Face Recognition Issues**: Ensure good lighting and clear face photos
 - **QR Code Not Detected**: Make sure QR code is clearly visible and well-lit
 - **Camera Access**: Grant camera permissions when prompted
+- **Database Errors**: Ensure write permissions in the application directory
 
 ## Support
 
